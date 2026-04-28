@@ -50,16 +50,16 @@ function Hero() {
         fontSize: 'clamp(34px, 5vw, 52px)', fontWeight: 800, lineHeight: 1.1,
         letterSpacing: '-0.03em', marginBottom: 16, color: C.dark,
       }}>
-        You only have<br />
-        <span style={{ color: C.blue }}>4,000 weeks.</span><br />
-        Plan them well.
+        Plan less.<br />
+        <span style={{ color: C.blue }}>Finish more.</span>
       </h1>
       <p style={{
         fontSize: 18, color: C.muted, lineHeight: 1.6,
-        maxWidth: 460, margin: '0 auto 32px',
+        maxWidth: 480, margin: '0 auto 32px',
       }}>
-        Stop overloading your week with tasks you'll never finish.
-        Set hard limits, focus on what matters, and end every week knowing you moved the needle.
+        The weekly planner that says no for you. Hard limits on tasks per day,
+        3 milestones per week, and daily rituals that take 2 minutes.
+        So you stop planning and start doing.
       </p>
       <a href={APP_URL}
         style={{
@@ -277,9 +277,9 @@ function AppPreview() {
 /* ─── 3 Steps (StoryBrand plan) ─── */
 function ThreeSteps() {
   const steps = [
-    { num: '1', title: 'Set your 3 milestones', desc: 'Pick the outcomes that move the needle this week. Everything else supports these.', color: C.blue },
-    { num: '2', title: 'Drag tasks into daily slots', desc: 'Hard limits per day prevent overcommitting. 1 deep work, 2 focus, 5 admin.', color: C.almond },
-    { num: '3', title: 'Start and close each day', desc: '2-min morning ritual to plan. Evening shutdown to triage and reflect.', color: '#10B981' },
+    { num: '1', title: 'Pick 3 milestones', desc: 'What will actually move the needle this week? Choose three. Let go of the rest.', color: C.blue },
+    { num: '2', title: 'Fill your day slots', desc: 'Drag tasks into daily slots with hard limits. If it doesn\'t fit, it doesn\'t happen today.', color: C.almond },
+    { num: '3', title: 'Open and close each day', desc: '2-minute morning plan. Evening triage. Know what you did, not just what you planned.', color: '#10B981' },
   ]
 
   return (
@@ -311,10 +311,10 @@ function ThreeSteps() {
 /* ─── Who it's for ─── */
 function Personas() {
   const personas = [
-    { emoji: '🚀', title: 'Startup Founders', desc: 'Who wear 10 hats and need to protect their deep work time.' },
-    { emoji: '📊', title: 'Product Managers', desc: 'Who juggle stakeholders, roadmaps, and meetings all week.' },
-    { emoji: '🎨', title: 'Freelancers', desc: 'Who manage multiple clients and need clear weekly boundaries.' },
-    { emoji: '📚', title: 'Students', desc: 'Who balance coursework, projects, and life without burning out.' },
+    { emoji: '🚀', title: 'Founders', desc: 'Wearing 10 hats. Need to protect the 2 hours that actually matter.' },
+    { emoji: '📊', title: 'PMs & Managers', desc: 'Drowning in meetings. Need a plan that survives the calendar.' },
+    { emoji: '🎨', title: 'Freelancers', desc: 'Multiple clients, no manager. Need weekly structure without the overhead.' },
+    { emoji: '📚', title: 'Students', desc: 'Assignments, deadlines, life. Need to see the whole week at a glance.' },
   ]
 
   return (
@@ -323,7 +323,7 @@ function Personas() {
         fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, textAlign: 'center',
         marginBottom: 40, color: C.dark, letterSpacing: '-0.02em',
       }}>
-        Built for people who are tired of<br />planning more than doing
+        For people who plan too much<br />and finish too little
       </h2>
       <div style={{
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16,
@@ -370,7 +370,7 @@ function Testimonials() {
         fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, textAlign: 'center',
         marginBottom: 40, color: C.dark, letterSpacing: '-0.02em',
       }}>
-        What people are saying
+        Don't take our word for it
       </h2>
       <div style={{
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20,
@@ -401,8 +401,13 @@ function Testimonials() {
   )
 }
 
-/* ─── Vision ─── */
-function Vision() {
+/* ─── Building in public ─── */
+function BuildingInPublic() {
+  const apps = [
+    { name: 'donothingtimer.com', url: 'https://donothingtimer.com', desc: 'A timer that rewards you for doing absolutely nothing.' },
+    { name: 'toohardtostart.com', url: 'https://toohardtostart.com', desc: 'For when the task feels impossible to begin.' },
+  ]
+
   return (
     <section style={{ padding: '70px 24px', textAlign: 'center', background: C.surface }}>
       <p style={{
@@ -412,8 +417,32 @@ function Vision() {
       }}>
         "Plan your life before your meetings plan it for you."
       </p>
-      <p style={{ fontSize: 14, color: C.muted, marginTop: 16, lineHeight: 1.6, maxWidth: 440, margin: '16px auto 0' }}>
-        This is an early version. We're building in public and your feedback shapes what comes next.
+      <p style={{ fontSize: 14, color: C.muted, marginTop: 16, lineHeight: 1.65, maxWidth: 480, margin: '16px auto 0' }}>
+        planyourweek is an early-stage product built by{' '}
+        <a href="https://ultrafocus.co" target="_blank" rel="noopener noreferrer" style={{ color: C.blue, textDecoration: 'none' }}>ultrafocus</a>.
+        We ship small, test fast, and let real feedback guide what we build.
+        Your input directly shapes the next version.
+      </p>
+
+      <div style={{
+        display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap',
+        marginTop: 28,
+      }}>
+        {apps.map(app => (
+          <a key={app.name} href={app.url} target="_blank" rel="noopener noreferrer" style={{
+            padding: '14px 20px', borderRadius: 12,
+            background: '#fff', border: `1px solid ${C.border}`,
+            textDecoration: 'none', textAlign: 'left',
+            maxWidth: 260, display: 'flex', flexDirection: 'column', gap: 4,
+          }}>
+            <span style={{ fontSize: 14, fontWeight: 600, color: C.blue }}>{app.name}</span>
+            <span style={{ fontSize: 12, color: C.muted, lineHeight: 1.4 }}>{app.desc}</span>
+          </a>
+        ))}
+      </div>
+
+      <p style={{ fontSize: 12, color: '#bbb', marginTop: 20 }}>
+        More micro-tools coming soon.
       </p>
     </section>
   )
@@ -427,10 +456,10 @@ function CTA() {
         fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: C.dark,
         letterSpacing: '-0.02em', marginBottom: 12,
       }}>
-        Your week, planned in minutes
+        Stop planning. Start doing.
       </h2>
       <p style={{ fontSize: 16, color: C.muted, marginBottom: 28 }}>
-        Free forever. Works offline. Sync with Google sign-in.
+        Free forever. No sign-up. Works offline. Sync when you're ready.
       </p>
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
         <a href={APP_URL} style={{
@@ -475,7 +504,7 @@ export default function App() {
       <ThreeSteps />
       <Personas />
       <Testimonials />
-      <Vision />
+      <BuildingInPublic />
       <CTA />
       <Footer />
     </div>
