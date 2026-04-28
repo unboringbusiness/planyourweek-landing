@@ -162,6 +162,25 @@ function Comparison() {
   )
 }
 
+function Vision() {
+  return (
+    <section style={{
+      padding: '60px 24px', maxWidth: 600, margin: '0 auto', textAlign: 'center',
+    }}>
+      <p style={{
+        fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 700, color: '#111',
+        lineHeight: 1.4, letterSpacing: '-0.02em', fontStyle: 'italic',
+      }}>
+        "Building a world where everyone has an extra 20 hours in their week."
+      </p>
+      <p style={{ fontSize: 14, color: '#9CA3AF', marginTop: 12 }}>
+        This is an early version. We're testing ideas before building the full product.
+        <br />Your feedback shapes what we build next.
+      </p>
+    </section>
+  )
+}
+
 function CTA() {
   return (
     <section style={{
@@ -177,18 +196,34 @@ function CTA() {
       <p style={{ fontSize: 16, color: '#6B7280', marginBottom: 28 }}>
         Free forever. Works offline. Sync with Google sign-in.
       </p>
-      <a
-        href={APP_URL}
-        style={{
-          display: 'inline-block',
-          padding: '16px 44px', borderRadius: 12,
-          background: '#3B82F6', color: '#fff',
-          fontSize: 17, fontWeight: 600, textDecoration: 'none',
-          boxShadow: '0 4px 14px rgba(59,130,246,0.25)',
-        }}
-      >
-        Start planning — it's free
-      </a>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <a
+          href={APP_URL}
+          style={{
+            display: 'inline-block',
+            padding: '16px 44px', borderRadius: 12,
+            background: '#3B82F6', color: '#fff',
+            fontSize: 17, fontWeight: 600, textDecoration: 'none',
+            boxShadow: '0 4px 14px rgba(59,130,246,0.25)',
+          }}
+        >
+          Start planning — it's free
+        </a>
+        <a
+          href="https://planyourweek.featurebase.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '16px 32px', borderRadius: 12,
+            background: '#fff', color: '#3B82F6',
+            fontSize: 17, fontWeight: 600, textDecoration: 'none',
+            border: '1.5px solid #3B82F6',
+          }}
+        >
+          Share feedback
+        </a>
+      </div>
     </section>
   )
 }
@@ -217,6 +252,7 @@ export default function App() {
       <Hero />
       <Features />
       <Comparison />
+      <Vision />
       <CTA />
       <Footer />
     </>
