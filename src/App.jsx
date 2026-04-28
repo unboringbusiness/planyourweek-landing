@@ -40,7 +40,6 @@ function Nav() {
   )
 }
 
-/* ─── Hero with StoryBrand clarity ─── */
 function Hero() {
   return (
     <section style={{
@@ -51,15 +50,16 @@ function Hero() {
         fontSize: 'clamp(34px, 5vw, 52px)', fontWeight: 800, lineHeight: 1.1,
         letterSpacing: '-0.03em', marginBottom: 16, color: C.dark,
       }}>
-        Plan your week in minutes.<br />
-        <span style={{ color: C.blue }}>Finish what matters.</span>
+        You only have<br />
+        <span style={{ color: C.blue }}>4,000 weeks.</span><br />
+        Plan them well.
       </h1>
       <p style={{
         fontSize: 18, color: C.muted, lineHeight: 1.6,
-        maxWidth: 480, margin: '0 auto 32px',
+        maxWidth: 460, margin: '0 auto 32px',
       }}>
         Stop overloading your week with tasks you'll never finish.
-        planyourweek sets hard limits so you plan what's actually possible.
+        Set hard limits, focus on what matters, and end every week knowing you moved the needle.
       </p>
       <a href={APP_URL}
         style={{
@@ -78,7 +78,7 @@ function Hero() {
   )
 }
 
-/* ─── Full-width app preview (colorful mock like Ellie) ─── */
+/* ─── Light mode app preview ─── */
 function AppPreview() {
   const tasks = {
     mon: [
@@ -99,38 +99,36 @@ function AppPreview() {
     ],
     thu: [
       { text: 'Ship feature v2', time: '1:30', type: 'deep', done: false },
-      { text: 'Product review meeting', time: '0:45', type: 'focus', done: false },
+      { text: 'Product review', time: '0:45', type: 'focus', done: false },
       { text: 'Book team dinner', time: '0:10', type: 'admin', done: false },
     ],
     fri: [
       { text: 'Weekly retro prep', time: '0:45', type: 'deep', done: false },
       { text: 'Demo to stakeholders', time: '0:30', type: 'focus', done: false },
-      { text: 'Clean up Slack threads', time: '0:15', type: 'admin', done: true },
+      { text: 'Clean up Slack', time: '0:15', type: 'admin', done: true },
     ],
   }
 
   const typeColors = {
-    deep: { bg: 'rgba(59,130,246,0.08)', border: '#3B82F6', label: '#3B82F6' },
-    focus: { bg: 'rgba(240,143,72,0.08)', border: '#F08F48', label: '#F08F48' },
-    admin: { bg: 'rgba(156,163,175,0.06)', border: '#D1D5DB', label: '#9CA3AF' },
+    deep: { bg: '#EFF6FF', border: '#3B82F6' },
+    focus: { bg: '#FFF7ED', border: '#F08F48' },
+    admin: { bg: '#F9FAFB', border: '#D1D5DB' },
   }
 
   const dayLabels = { mon: 'MON', tue: 'TUE', wed: 'WED', thu: 'THU', fri: 'FRI' }
   const dayDates = { mon: '28', tue: '29', wed: '30', thu: '1', fri: '2' }
 
   return (
-    <section style={{
-      padding: '20px 24px 60px', maxWidth: 1100, margin: '0 auto',
-    }}>
+    <section style={{ padding: '20px 24px 60px', maxWidth: 1100, margin: '0 auto' }}>
       <div style={{
-        background: '#1A1D23', borderRadius: 16, overflow: 'hidden',
-        boxShadow: '0 24px 80px rgba(19,57,80,0.18)',
-        padding: '0',
+        background: '#FFFFFF', borderRadius: 16, overflow: 'hidden',
+        boxShadow: '0 8px 60px rgba(19,57,80,0.1), 0 1px 3px rgba(0,0,0,0.06)',
+        border: '1px solid #E5E7EB',
       }}>
-        {/* Mock browser bar */}
+        {/* Browser chrome */}
         <div style={{
           display: 'flex', alignItems: 'center', gap: 8,
-          padding: '12px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)',
+          padding: '10px 16px', background: '#F9FAFB', borderBottom: '1px solid #E5E7EB',
         }}>
           <div style={{ display: 'flex', gap: 6 }}>
             <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF5F57' }} />
@@ -138,79 +136,91 @@ function AppPreview() {
             <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#28CA42' }} />
           </div>
           <div style={{
-            flex: 1, textAlign: 'center', fontSize: 11, color: '#666',
-            background: 'rgba(255,255,255,0.04)', borderRadius: 6, padding: '4px 12px',
+            flex: 1, textAlign: 'center', fontSize: 11, color: '#999',
+            background: '#fff', border: '1px solid #E5E7EB', borderRadius: 6, padding: '4px 12px',
             maxWidth: 300, margin: '0 auto',
           }}>
             app.planyourweek.co
           </div>
         </div>
 
-        {/* Mock top bar */}
+        {/* Top bar */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '10px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)',
+          padding: '10px 20px', borderBottom: '1px solid #E5E7EB',
         }}>
           <span style={{ fontSize: 14 }}>
-            <span style={{ color: '#ccc', fontWeight: 400 }}>plan</span>
-            <span style={{ color: '#ccc', fontWeight: 400 }}>your</span>
+            <span style={{ color: C.dark, fontWeight: 400 }}>plan</span>
+            <span style={{ color: C.dark, fontWeight: 400 }}>your</span>
             <span style={{ color: C.blue, fontWeight: 700 }}>week</span>
           </span>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <span style={{ fontSize: 11, color: '#666' }}>Apr 28 – May 4</span>
-            <span style={{ fontSize: 11, color: '#666', padding: '3px 8px', border: '1px solid #333', borderRadius: 4 }}>Today</span>
+            <span style={{ fontSize: 11, color: '#999' }}>Apr 28 – May 4</span>
+            <span style={{ fontSize: 11, color: C.blue, padding: '3px 10px', border: '1px solid #DBEAFE', borderRadius: 5, background: '#EFF6FF' }}>Today</span>
           </div>
         </div>
 
-        {/* Milestone row */}
+        {/* Milestones */}
         <div style={{
           display: 'flex', gap: 10, padding: '12px 20px',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          borderBottom: '1px solid #F3F4F6', background: '#FAFBFC',
         }}>
-          {['Ship pitch deck to investors', 'Close Acme Co deal', 'Launch blog v2'].map((t, i) => (
+          {[
+            { text: 'Ship pitch deck to investors', done: true },
+            { text: 'Close Acme Co deal', done: false },
+            { text: 'Launch blog v2', done: false },
+          ].map((m, i) => (
             <div key={i} style={{
               flex: 1, padding: '8px 12px', borderRadius: 8,
-              border: `1.5px solid ${i === 0 ? '#10B981' : 'rgba(59,130,246,0.3)'}`,
-              background: i === 0 ? 'rgba(16,185,129,0.06)' : 'rgba(59,130,246,0.03)',
+              border: `1.5px solid ${m.done ? '#10B981' : '#DBEAFE'}`,
+              background: m.done ? 'rgba(16,185,129,0.04)' : '#FAFBFF',
+              display: 'flex', alignItems: 'flex-start', gap: 8,
             }}>
-              <div style={{ fontSize: 9, color: i === 0 ? '#10B981' : C.blue, fontWeight: 600, marginBottom: 2 }}>
-                Milestone {i + 1}
-              </div>
               <div style={{
-                fontSize: 11, color: i === 0 ? '#888' : '#ccc',
-                textDecoration: i === 0 ? 'line-through' : 'none',
-              }}>{t}</div>
+                width: 14, height: 14, borderRadius: '50%', flexShrink: 0, marginTop: 1,
+                background: m.done ? '#10B981' : 'transparent',
+                border: m.done ? 'none' : '1.5px solid #D1D5DB',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                {m.done && <span style={{ fontSize: 8, color: '#fff' }}>✓</span>}
+              </div>
+              <div>
+                <div style={{ fontSize: 9, color: m.done ? '#10B981' : C.blue, fontWeight: 600, marginBottom: 1 }}>Milestone {i + 1}</div>
+                <div style={{ fontSize: 11, color: m.done ? '#999' : C.dark, textDecoration: m.done ? 'line-through' : 'none' }}>{m.text}</div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Main area: sidebar + columns */}
-        <div style={{ display: 'flex', minHeight: 340 }}>
-          {/* Left sidebar */}
+        {/* Main: sidebar + columns */}
+        <div style={{ display: 'flex', minHeight: 320 }}>
+          {/* Sidebar */}
           <div style={{
-            width: 180, borderRight: '1px solid rgba(255,255,255,0.06)',
-            padding: '12px 14px', flexShrink: 0,
+            width: 180, borderRight: '1px solid #F3F4F6',
+            padding: '12px 14px', flexShrink: 0, background: '#FAFBFC',
           }}>
-            <div style={{ fontSize: 10, color: '#888', fontWeight: 600, marginBottom: 10 }}>THIS WEEK <span style={{ color: '#666' }}>8/20</span></div>
-            <div style={{ fontSize: 11, fontWeight: 600, color: '#ccc', marginBottom: 6 }}>Work</div>
+            <div style={{ fontSize: 10, color: '#999', fontWeight: 600, marginBottom: 10 }}>
+              THIS WEEK <span style={{ color: '#ccc' }}>8/20</span>
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: C.dark, marginBottom: 6 }}>💼 Work</div>
             {['Update roadmap', 'Prep board slides', 'Review contracts'].map((t, i) => (
               <div key={i} style={{
-                fontSize: 11, color: '#aaa', padding: '5px 8px', borderRadius: 5,
-                background: 'rgba(255,255,255,0.03)', marginBottom: 3,
+                fontSize: 11, color: C.text, padding: '5px 8px', borderRadius: 5,
+                background: '#fff', border: '1px solid #F3F4F6', marginBottom: 3,
                 display: 'flex', alignItems: 'center', gap: 6,
               }}>
-                <div style={{ width: 12, height: 12, borderRadius: '50%', border: '1.5px solid #555', flexShrink: 0 }} />
+                <div style={{ width: 12, height: 12, borderRadius: '50%', border: '1.5px solid #D1D5DB', flexShrink: 0 }} />
                 {t}
               </div>
             ))}
-            <div style={{ fontSize: 11, fontWeight: 600, color: '#ccc', marginTop: 12, marginBottom: 6 }}>Personal</div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: C.dark, marginTop: 12, marginBottom: 6 }}>🏠 Personal</div>
             {['Gym — legs day', 'Call dentist', 'Grocery run'].map((t, i) => (
               <div key={i} style={{
-                fontSize: 11, color: '#aaa', padding: '5px 8px', borderRadius: 5,
-                background: 'rgba(255,255,255,0.03)', marginBottom: 3,
+                fontSize: 11, color: C.text, padding: '5px 8px', borderRadius: 5,
+                background: '#fff', border: '1px solid #F3F4F6', marginBottom: 3,
                 display: 'flex', alignItems: 'center', gap: 6,
               }}>
-                <div style={{ width: 12, height: 12, borderRadius: '50%', border: '1.5px solid #555', flexShrink: 0 }} />
+                <div style={{ width: 12, height: 12, borderRadius: '50%', border: '1.5px solid #D1D5DB', flexShrink: 0 }} />
                 {t}
               </div>
             ))}
@@ -220,38 +230,38 @@ function AppPreview() {
           <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
             {Object.entries(tasks).map(([day, dayTasks], dayIdx) => (
               <div key={day} style={{
-                flex: 1, borderRight: dayIdx < 4 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-                padding: '10px 8px', display: 'flex', flexDirection: 'column', gap: 4,
+                flex: 1, borderRight: dayIdx < 4 ? '1px solid #F3F4F6' : 'none',
+                padding: '10px 6px', display: 'flex', flexDirection: 'column', gap: 4,
+                background: dayIdx === 0 ? '#FAFBFF' : '#fff',
               }}>
                 <div style={{ textAlign: 'center', marginBottom: 6 }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: dayIdx === 0 ? C.blue : '#888' }}>{dayLabels[day]}</div>
-                  <div style={{ fontSize: 22, fontWeight: 700, color: dayIdx === 0 ? C.blue : '#ccc' }}>{dayDates[day]}</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: dayIdx === 0 ? C.blue : '#999' }}>{dayLabels[day]}</div>
+                  <div style={{ fontSize: 20, fontWeight: 700, color: dayIdx === 0 ? C.blue : C.dark }}>{dayDates[day]}</div>
                 </div>
                 {dayTasks.map((task, i) => {
                   const tc = typeColors[task.type]
                   return (
                     <div key={i} style={{
-                      padding: '7px 8px', borderRadius: 6,
-                      background: tc.bg,
-                      borderLeft: `2.5px solid ${tc.border}`,
-                      display: 'flex', alignItems: 'flex-start', gap: 6,
+                      padding: '6px 7px', borderRadius: 6,
+                      background: tc.bg, borderLeft: `2.5px solid ${tc.border}`,
+                      display: 'flex', alignItems: 'flex-start', gap: 5,
                     }}>
                       <div style={{
-                        width: 13, height: 13, borderRadius: '50%', flexShrink: 0, marginTop: 1,
+                        width: 12, height: 12, borderRadius: '50%', flexShrink: 0, marginTop: 1,
                         border: task.done ? 'none' : `1.5px solid ${tc.border}`,
                         background: task.done ? '#10B981' : 'transparent',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                       }}>
-                        {task.done && <span style={{ fontSize: 8, color: '#fff' }}>✓</span>}
+                        {task.done && <span style={{ fontSize: 7, color: '#fff' }}>✓</span>}
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{
-                          fontSize: 11, color: task.done ? '#666' : '#ddd',
+                          fontSize: 10.5, color: task.done ? '#999' : C.dark,
                           textDecoration: task.done ? 'line-through' : 'none',
                           lineHeight: 1.3,
                         }}>{task.text}</div>
                       </div>
-                      <span style={{ fontSize: 10, color: '#666', flexShrink: 0 }}>{task.time}</span>
+                      <span style={{ fontSize: 9, color: '#bbb', flexShrink: 0 }}>{task.time}</span>
                     </div>
                   )
                 })}
@@ -264,27 +274,12 @@ function AppPreview() {
   )
 }
 
-/* ─── 3 steps (StoryBrand plan) ─── */
+/* ─── 3 Steps (StoryBrand plan) ─── */
 function ThreeSteps() {
   const steps = [
-    {
-      num: '1',
-      title: 'Set your 3 milestones',
-      desc: 'Pick the outcomes that will move the needle this week. Everything else supports these.',
-      color: C.blue,
-    },
-    {
-      num: '2',
-      title: 'Drag tasks into daily slots',
-      desc: 'Hard limits per day (1 deep work, 2 focus, 5 admin) prevent overcommitting.',
-      color: C.almond,
-    },
-    {
-      num: '3',
-      title: 'Start each day with a 2-min ritual',
-      desc: 'Review yesterday, plan today, check capacity. End the day with a shutdown reflection.',
-      color: '#10B981',
-    },
+    { num: '1', title: 'Set your 3 milestones', desc: 'Pick the outcomes that move the needle this week. Everything else supports these.', color: C.blue },
+    { num: '2', title: 'Drag tasks into daily slots', desc: 'Hard limits per day prevent overcommitting. 1 deep work, 2 focus, 5 admin.', color: C.almond },
+    { num: '3', title: 'Start and close each day', desc: '2-min morning ritual to plan. Evening shutdown to triage and reflect.', color: '#10B981' },
   ]
 
   return (
@@ -297,19 +292,51 @@ function ThreeSteps() {
       </h2>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
         {steps.map(s => (
-          <div key={s.num} style={{
-            flex: '1 1 220px', maxWidth: 260, textAlign: 'center',
-          }}>
+          <div key={s.num} style={{ flex: '1 1 220px', maxWidth: 240, textAlign: 'center' }}>
             <div style={{
               width: 48, height: 48, borderRadius: '50%',
               background: s.color, color: '#fff',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 20, fontWeight: 700, margin: '0 auto 16px',
-            }}>
-              {s.num}
-            </div>
+            }}>{s.num}</div>
             <div style={{ fontSize: 16, fontWeight: 600, color: C.dark, marginBottom: 6 }}>{s.title}</div>
             <div style={{ fontSize: 14, color: C.muted, lineHeight: 1.55 }}>{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/* ─── Who it's for ─── */
+function Personas() {
+  const personas = [
+    { emoji: '🚀', title: 'Startup Founders', desc: 'Who wear 10 hats and need to protect their deep work time.' },
+    { emoji: '📊', title: 'Product Managers', desc: 'Who juggle stakeholders, roadmaps, and meetings all week.' },
+    { emoji: '🎨', title: 'Freelancers', desc: 'Who manage multiple clients and need clear weekly boundaries.' },
+    { emoji: '📚', title: 'Students', desc: 'Who balance coursework, projects, and life without burning out.' },
+  ]
+
+  return (
+    <section style={{ padding: '60px 24px', maxWidth: 900, margin: '0 auto' }}>
+      <h2 style={{
+        fontSize: 'clamp(24px, 3vw, 32px)', fontWeight: 700, textAlign: 'center',
+        marginBottom: 40, color: C.dark, letterSpacing: '-0.02em',
+      }}>
+        Built for people who are tired of<br />planning more than doing
+      </h2>
+      <div style={{
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16,
+      }}>
+        {personas.map(p => (
+          <div key={p.title} style={{
+            padding: '24px 20px', borderRadius: 14,
+            background: '#fff', border: `1px solid ${C.border}`,
+            textAlign: 'center',
+          }}>
+            <div style={{ fontSize: 32, marginBottom: 10 }}>{p.emoji}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: C.dark, marginBottom: 4 }}>{p.title}</div>
+            <div style={{ fontSize: 13, color: C.muted, lineHeight: 1.5 }}>{p.desc}</div>
           </div>
         ))}
       </div>
@@ -321,20 +348,17 @@ function ThreeSteps() {
 function Testimonials() {
   const reviews = [
     {
-      name: 'Vidhi',
-      role: 'Product Manager',
+      name: 'Vidhi', role: 'Product Manager',
       text: 'I finally stopped adding 30 tasks to my Monday. The daily limits feel restrictive at first, then freeing. I actually finish my week now.',
       color: '#FDDCBC',
     },
     {
-      name: 'Raj',
-      role: 'Startup Founder',
+      name: 'Raj', role: 'Startup Founder',
       text: 'The milestone feature changed how I think about my week. Instead of a todo list, I have 3 real goals. Everything else flows from those.',
       color: C.blueBg,
     },
     {
-      name: 'Daniel',
-      role: 'Freelance Designer',
+      name: 'Daniel', role: 'Freelance Designer',
       text: 'The daily startup ritual takes 2 minutes but saves me an hour of context-switching. I know exactly what I\'m doing when I sit down.',
       color: '#FFF5D6',
     },
@@ -349,18 +373,13 @@ function Testimonials() {
         What people are saying
       </h2>
       <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: 20,
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20,
       }}>
         {reviews.map(r => (
           <div key={r.name} style={{
-            padding: '28px 24px', borderRadius: 16,
-            background: r.color,
+            padding: '28px 24px', borderRadius: 16, background: r.color,
           }}>
-            <p style={{
-              fontSize: 14, color: C.text, lineHeight: 1.6,
-              marginBottom: 20, fontStyle: 'italic',
-            }}>
+            <p style={{ fontSize: 14, color: C.text, lineHeight: 1.6, marginBottom: 20, fontStyle: 'italic' }}>
               "{r.text}"
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -369,9 +388,7 @@ function Testimonials() {
                 background: 'rgba(0,0,0,0.08)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 16, fontWeight: 700, color: C.dark,
-              }}>
-                {r.name[0]}
-              </div>
+              }}>{r.name[0]}</div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: C.dark }}>{r.name}</div>
                 <div style={{ fontSize: 12, color: C.muted }}>{r.role}</div>
@@ -387,10 +404,7 @@ function Testimonials() {
 /* ─── Vision ─── */
 function Vision() {
   return (
-    <section style={{
-      padding: '70px 24px', textAlign: 'center',
-      background: C.surface,
-    }}>
+    <section style={{ padding: '70px 24px', textAlign: 'center', background: C.surface }}>
       <p style={{
         fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 700, color: C.dark,
         lineHeight: 1.35, letterSpacing: '-0.02em',
@@ -405,12 +419,10 @@ function Vision() {
   )
 }
 
-/* ─── Final CTA ─── */
+/* ─── CTA ─── */
 function CTA() {
   return (
-    <section style={{
-      padding: '80px 24px', textAlign: 'center',
-    }}>
+    <section style={{ padding: '80px 24px', textAlign: 'center' }}>
       <h2 style={{
         fontSize: 'clamp(28px, 4vw, 38px)', fontWeight: 800, color: C.dark,
         letterSpacing: '-0.02em', marginBottom: 12,
@@ -421,24 +433,18 @@ function CTA() {
         Free forever. Works offline. Sync with Google sign-in.
       </p>
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-        <a href={APP_URL}
-          style={{
-            padding: '16px 44px', borderRadius: 12,
-            background: C.blue, color: '#fff',
-            fontSize: 17, fontWeight: 600, textDecoration: 'none',
-            boxShadow: '0 4px 14px rgba(59,130,246,0.2)',
-          }}>
-          Start planning — it's free
-        </a>
-        <a href="https://planyourweek.featurebase.app" target="_blank" rel="noopener noreferrer"
-          style={{
-            padding: '16px 32px', borderRadius: 12,
-            background: 'transparent', color: C.blue,
-            fontSize: 17, fontWeight: 600, textDecoration: 'none',
-            border: `1.5px solid ${C.blue}`,
-          }}>
-          Share feedback
-        </a>
+        <a href={APP_URL} style={{
+          padding: '16px 44px', borderRadius: 12,
+          background: C.blue, color: '#fff',
+          fontSize: 17, fontWeight: 600, textDecoration: 'none',
+          boxShadow: '0 4px 14px rgba(59,130,246,0.2)',
+        }}>Start planning — it's free</a>
+        <a href="https://planyourweek.featurebase.app" target="_blank" rel="noopener noreferrer" style={{
+          padding: '16px 32px', borderRadius: 12,
+          background: 'transparent', color: C.blue,
+          fontSize: 17, fontWeight: 600, textDecoration: 'none',
+          border: `1.5px solid ${C.blue}`,
+        }}>Share feedback</a>
       </div>
     </section>
   )
@@ -467,6 +473,7 @@ export default function App() {
       <Hero />
       <AppPreview />
       <ThreeSteps />
+      <Personas />
       <Testimonials />
       <Vision />
       <CTA />
