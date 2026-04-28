@@ -171,7 +171,7 @@ function Vision() {
         fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 700, color: '#111',
         lineHeight: 1.4, letterSpacing: '-0.02em', fontStyle: 'italic',
       }}>
-        "Building a world where everyone has an extra 20 hours in their week."
+        "Plan your life before your meetings plan it for you."
       </p>
       <p style={{ fontSize: 14, color: '#9CA3AF', marginTop: 12 }}>
         This is an early version. We're testing ideas before building the full product.
